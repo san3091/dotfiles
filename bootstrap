@@ -1,0 +1,27 @@
+#!/bin/bash
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle
+
+rbenv install 2.7.1 
+brew services restart postgresql
+
+git config --global init.defaultBranch main
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global interactive.diffFilter "diff-so-fancy --patch"
+git config --global color.ui true
+
+# install zgen package manager for zsh
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+
+# Clean up old unnecessary files or symlinks
+rm -f ~/.vimrc ~/.gvimrc ~/.vimrc.bundles; rm -rf ~/.vim
+# Clone directly into ~/.vim
+git clone git@github.com:braintreeps/vim_dotfiles ~/.vim
+
+mkdir ~/src
+
+cp .alacritty.yml ~/src
+cp .tmux.conf ~/src
+cp .zshrc ~/src
