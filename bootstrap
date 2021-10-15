@@ -20,6 +20,8 @@ rm -f ~/.vimrc ~/.gvimrc ~/.vimrc.bundles; rm -rf ~/.vim
 # Clone directly into ~/.vim
 git clone git@github.com:braintreeps/vim_dotfiles ~/.vim
 
+~/.vim/activate.sh
+
 mkdir ~/src
 
 cp .alacritty.yml ~/src
